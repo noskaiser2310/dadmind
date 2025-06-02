@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- FAVICON_PLACEHOLDER: Replace with your favicon link -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DadMind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#4A55A2', 
+              'brand-secondary': '#E178C5', 
+              'brand-accent': '#7F5283', 
+              'brand-bg-subtle': '#F4F7FC', 
+              'brand-dark-text': '#2C3333', 
+              'brand-light-text': '#4F4F4F', 
+              'brand-bg-light': '#E8F0F9', 
+              'brand-bg-card': '#FFFFFF', 
+              'brand-border': '#D1D5DB',
+              // Risk level colors
+              'risk-severe-bg': '#FEE2E2', // red-100
+              'risk-severe-text': '#B91C1C', // red-700
+              'risk-severe-border': '#FCA5A5', // red-300
+              'risk-high-bg': '#FFEDD5', // orange-100
+              'risk-high-text': '#C2410C', // orange-700
+              'risk-high-border': '#FDBA74', // orange-300
+              'risk-moderate-bg': '#FEF9C3', // yellow-100
+              'risk-moderate-text': '#A16207', // yellow-700
+              'risk-moderate-border': '#FDE047', // yellow-400
+              'risk-low-bg': '#DCFCE7', // green-100
+              'risk-low-text': '#15803D', // green-700
+              'risk-low-border': '#86EFAC', // green-300
+              // System Message Colors
+              'system-error-bg': '#FEE2E2', // Light Red
+              'system-error-text': '#B91C1C',
+              'system-error-border': '#FCA5A5',
+              'system-warn-bg': '#FEF9C3', // Light Yellow
+              'system-warn-text': '#A16207',
+              'system-warn-border': '#FDE047',
+              'system-info-bg': '#E0F2FE', // Light Blue
+              'system-info-text': '#0369A1',
+              'system-info-border': '#7DD3FC',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            backgroundImage: {
+              'gradient-main': 'linear-gradient(to br, #E8F0F9, #FDEBF7)',
+              'gradient-nav': 'linear-gradient(to right, #4A55A2, #7F5283)',
+              'gradient-button': 'linear-gradient(to right, #7F5283, #E178C5)',
+            },
+            boxShadow: {
+              'interactive': '0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04)',
+              'interactive-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+              'card': '0 5px 15px rgba(0, 0, 0, 0.08)', 
+              'header': '0 2px 8px rgba(0,0,0,0.06)',
+              'glow-sm': '0 0 8px 0px theme("colors.brand-primary / 30%")' ,
+              'glow-md': '0 0 15px 2px theme("colors.brand-primary / 30%")' ,
+            },
+            typography: (theme) => ({
+              DEFAULT: {
+                css: {
+                  color: theme('colors.brand-dark-text'),
+                  a: {
+                    color: theme('colors.brand-primary'),
+                    '&:hover': {
+                      color: theme('colors.brand-accent'),
+                    },
+                    fontWeight: '500',
+                  },
+                  h1: { color: theme('colors.brand-dark-text'), fontWeight: '700' },
+                  h2: { color: theme('colors.brand-dark-text'), fontWeight: '600' },
+                  h3: { color: theme('colors.brand-primary'), fontWeight: '600' },
+                  strong: { color: theme('colors.brand-dark-text'), fontWeight: '600' },
+                  ul: { 
+                    listStyleType: 'disc', 
+                    paddingLeft: '1.5em', 
+                    color: theme('colors.brand-light-text'),
+                    li: {
+                        marginTop: '0.25em', 
+                        marginBottom: '0.25em',
+                        color: theme('colors.brand-light-text'), 
+                        '&::marker': { 
+                           color: theme('colors.brand-primary'),
+                        },
+                    }
+                  },
+                  ol: { 
+                    listStyleType: 'decimal', 
+                    paddingLeft: '1.5em', 
+                    color: theme('colors.brand-light-text'),
+                    li: {
+                        marginTop: '0.25em', 
+                        marginBottom: '0.25em',
+                        color: theme('colors.brand-light-text'),
+                         '&::marker': { 
+                           color: theme('colors.brand-primary'),
+                        },
+                    }
+                  },
+                  p: {
+                    color: theme('colors.brand-light-text'),
+                    lineHeight: '1.65',
+                    marginBottom: '1em',
+                  },
+                },
+              },
+              sm: {
+                css: {
+                  p: { fontSize: '0.875rem', lineHeight: '1.6' },
+                  ul: { li: { fontSize: '0.875rem' } },
+                  ol: { li: { fontSize: '0.875rem' } },
+                }
+              },
+              base: {
+                css: {
+                  p: { fontSize: '1rem', lineHeight: '1.65' },
+                  ul: { li: { fontSize: '1rem' } },
+                  ol: { li: { fontSize: '1rem' } },
+                }
+              }
+            }),
+            animation: {
+              'gradient-shift': 'gradient-shift 7s linear infinite',
+              'fadeInSmooth': 'fadeInSmooth 0.7s ease-out forwards 0.2s',
+              'subtle-pulse': 'subtle-pulse 8s infinite ease-in-out', // Slower pulse
+              'float-diag': 'float-diag 10s infinite ease-in-out', // Slower float
+              'gentle-bob': 'gentle-bob 6s infinite ease-in-out',
+              'subtle-glow': 'subtle-glow 2.5s infinite alternate ease-in-out',
+            },
+            keyframes: {
+              'gradient-shift': {
+                '0%, 100%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+              },
+              'fadeInSmooth': {
+                'from': { opacity: '0', transform: 'translateY(8px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'subtle-pulse': { // Adjusted for a more "breathing" feel
+                '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                '50%': { opacity: '0.6', transform: 'scale(1.03)' },
+              },
+              'float-diag': {
+                '0%, 100%': { transform: 'translate(0, 0)' },
+                '25%': { transform: 'translate(4px, -4px)' }, // Slightly more movement
+                '50%': { transform: 'translate(0px, 0px)' },
+                '75%': { transform: 'translate(-4px, 4px)' },
+              },
+              'gentle-bob': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-6px)' },
+              },
+              'subtle-glow': {
+                '0%': { boxShadow: '0 0 5px 0px theme("colors.brand-accent / 20%")' },
+                '100%': { boxShadow: '0 0 15px 3px theme("colors.brand-accent / 40%")' },
+              }
+            }
+          }
+        },
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .animated-gradient-text {
+          background-image: linear-gradient(to right, theme('colors.brand-primary'), theme('colors.brand-accent'), theme('colors.brand-secondary'), theme('colors.brand-accent'), theme('colors.brand-primary'));
+          background-size: 250% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: gradient-shift 7s linear infinite;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: theme('colors.brand-bg-light / 50%'); 
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: theme('colors.brand-primary / 50%'); 
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: theme('colors.brand-primary / 70%');
+        }
+        .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }
+        .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+        .line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+        .line-clamp-4 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.20.1",
+    "@google/genai": "https://cdn.jsdelivr.net/npm/@google/genai@1.0.1/+esm",
+    "pdfjs-dist": "https://esm.sh/pdfjs-dist@4.4.168",
+    "pdfjs-dist/": "https://esm.sh/pdfjs-dist@4.4.168/"
+  }
+}
+</script>
+</head>
+  <body class="bg-brand-bg-subtle font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html><link rel="stylesheet" href="index.css">
+<script src="index.tsx" type="module"></script>
