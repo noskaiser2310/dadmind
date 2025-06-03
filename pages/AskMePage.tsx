@@ -688,14 +688,14 @@ Kết quả của bạn (CHỈ LÀ PHẦN THÔNG TIN TRÍCH XUẤT/TỔNG HỢP,
             ) : (
                  <p className="text-red-500 p-1.5 bg-red-100/50 rounded-md">Không thể tải bất kỳ nguồn kiến thức nào.</p>
             )} */}
-            {kbLoadErrors.length > 0 && !isKBLoading && (
+            {/* {kbLoadErrors.length > 0 && !isKBLoading && (
                 <>
                     <h5 className="font-semibold text-red-500 text-xs mt-2 mb-0.5">Chi tiết lỗi:</h5>
                     <ul className="list-disc list-inside text-xs text-red-400 space-y-0.5">
                         {kbLoadErrors.map((err, idx) => <li key={idx}>{err.substring(0,100)}{err.length > 100 ? '...' : ''}</li>)}
                     </ul>
                 </>
-            )}
+            )} */}
 
 
             <h4 className="font-semibold text-brand-dark-text text-sm mt-4 mb-1.5">Gợi ý câu hỏi:</h4>
