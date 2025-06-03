@@ -15,7 +15,7 @@ import { LoadingIcon } from '../components/LoadingIcon';
 
 // GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.worker.min.js';
 const MAX_CHARS_PER_DOC_FOR_RAG_AI = 15000; 
-const MAX_CONTEXT_CHARS_FOR_MAIN_AI = 3800; 
+const MAX_CONTEXT_CHARS_FOR_MAIN_AI = 5000; 
 
 interface KnowledgeBasePDF {
   name: string;
@@ -23,8 +23,8 @@ interface KnowledgeBasePDF {
 }
 
 const KNOWLEDGE_BASE_PDFS: KnowledgeBasePDF[] = [
-  { name: "tam_ly_tri_lieu.pdf", url: "/res/tam_ly_tri_lieu.pdf" },
-  { name: "tam_ly_dai_cuong.pdf", url: "/res/tam_ly_dai_cuong.pdf" },
+  { name: "tam_ly_tri_lieu.pdf", url: "res/tam_ly_tri_lieu.pdf" },
+  { name: "tam_ly_dai_cuong.pdf", url: "res/tam_ly_dai_cuong.pdf" },
 ];
 
 const NO_RELEVANT_CONTEXT_STRING = "KHONG_TIM_THAY_CONTEXT_LIEN_QUAN";
@@ -688,14 +688,14 @@ Kết quả của bạn (CHỈ LÀ PHẦN THÔNG TIN TRÍCH XUẤT/TỔNG HỢP,
             ) : (
                  <p className="text-red-500 p-1.5 bg-red-100/50 rounded-md">Không thể tải bất kỳ nguồn kiến thức nào.</p>
             )}
-            {/* {kbLoadErrors.length > 0 && !isKBLoading && (
+            {kbLoadErrors.length > 0 && !isKBLoading && (
                 <>
                     <h5 className="font-semibold text-red-500 text-xs mt-2 mb-0.5">Chi tiết lỗi:</h5>
                     <ul className="list-disc list-inside text-xs text-red-400 space-y-0.5">
                         {kbLoadErrors.map((err, idx) => <li key={idx}>{err.substring(0,100)}{err.length > 100 ? '...' : ''}</li>)}
                     </ul>
                 </>
-            )} */}
+            )}
 
 
             <h4 className="font-semibold text-brand-dark-text text-sm mt-4 mb-1.5">Gợi ý câu hỏi:</h4>

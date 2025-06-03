@@ -186,6 +186,9 @@ export const IconVolumeOff: React.FC<{ className?: string }> = ({ className }) =
 
 export const GEMINI_MODEL_TEXT = 'gemini-2.5-flash-preview-04-17';
 export const GEMINI_MODEL_IMAGE = 'imagen-3.0-generate-002';
-
+// constants.ts
+export { CheckCircle as IconCheckCircle } from 'lucide-react';
+export { AlertCircle as IconExclamationCircle } from 'lucide-react';
+export { Info as IconInformationCircle } from 'lucide-react';
 // Placeholder for background music URL. Replace with your actual royalty-free music file.
 export const BACKGROUND_MUSIC_URL = '/assets/relaxing-background-music.mp3'; // EXAMPLE - REPLACE THIS!
