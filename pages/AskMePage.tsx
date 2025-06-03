@@ -670,7 +670,7 @@ Kết quả của bạn (CHỈ LÀ PHẦN THÔNG TIN TRÍCH XUẤT/TỔNG HỢP,
         </div>
         
         <div className="space-y-2.5 text-xs mb-4 flex-grow overflow-y-auto custom-scrollbar pr-1">
-            {/* <h4 className="font-semibold text-brand-dark-text text-sm mb-1.5">Nguồn Kiến Thức:</h4> 
+            <h4 className="font-semibold text-brand-dark-text text-sm mb-1.5">Nguồn Kiến Thức:</h4> 
             {isKBLoading ? (
                 <div className="flex items-center space-x-2 text-brand-light-text p-1.5">
                     <LoadingIcon size="sm" /> <span>Đang tải tài liệu...</span>
@@ -687,7 +687,7 @@ Kết quả của bạn (CHỈ LÀ PHẦN THÔNG TIN TRÍCH XUẤT/TỔNG HỢP,
                 </ul>
             ) : (
                  <p className="text-red-500 p-1.5 bg-red-100/50 rounded-md">Không thể tải bất kỳ nguồn kiến thức nào.</p>
-            )} */}
+            )}
             {/* {kbLoadErrors.length > 0 && !isKBLoading && (
                 <>
                     <h5 className="font-semibold text-red-500 text-xs mt-2 mb-0.5">Chi tiết lỗi:</h5>
